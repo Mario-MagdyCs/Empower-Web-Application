@@ -1,0 +1,99 @@
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="/" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+        <h1 class="m-0 text-primary reading12">Empower</h1>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <a href="/" class="nav-item nav-link active reading12  linkss" id="home">Home</a>
+            <a href="/about" class="nav-item nav-link reading12 linkss" id="about" >About</a>
+            <a href="/uploadResume" class="nav-item nav-link reading12 linkss" id="upload">Upload Resume</a>
+            <div class="nav-item dropdown" id="dropdown">
+                <a href="#" class="nav-link dropdown-toggle reading12 linkss" data-bs-toggle="dropdown">Jobs</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                    <a href="/appliedfor" class="dropdown-item reading12 linkss">Job List</a>
+                    <a href="" class="dropdown-item reading12 linkss">Job Detail</a>
+                </div>
+            </div>
+            <div class="indicator"></div>
+            <img src="/img/notification.png" class="img" id="notificationToggle">
+            <div class="notifications" id="notifications">
+                <span class="close-btn" id="closeBtn">&times;</span>
+                <h2>Notification Title</h2>
+                <% for (const message of notificationMessages) { %>
+                    <div class="notification-block">
+                       
+                        <p><%= message %></p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <a href="reg" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block reading12 linkss" id="changable">Registration <i class="fa fa-arrow-right ms-3"></i></a>
+    </div>
+</nav>
+<style>
+ .notifications {
+    position: absolute;
+    top: 50px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: right 0.3s ease-in-out, height 0.3s ease-in-out;
+    border-radius: 10px;
+    overflow: hidden;
+    transform: translateY(-100%); /* Move it off the top of the screen */
+    display: none; /* Hide it by default */
+}
+
+.notifications.active {
+    transform: translateY(50px); 
+    right: 10px;
+    display: block; /* Make it visible when active */
+    
+}
+
+        /* Close button style */
+       .close-btn {
+            float: right;
+            cursor: pointer;
+        }
+
+    img{
+        position: relative;
+        width: 30px;
+        height: 30px;
+        margin-top: 20px;
+        margin-right: 25px;
+    }
+    .notification-block {
+    background-color: #f0f0f0; /* Background color for the block */
+    padding: 10px; /* Adjust padding as needed */
+    margin: 10px 0; /* Adjust margin as needed */
+    border: 2px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Add rounded corners */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    /* Add more styling properties as desired */
+}
+
+</style>
+<script>
+const notificationImage = document.getElementById("notificationToggle");
+const notifications = document.getElementById("notifications");
+const closeBtn = document.getElementById("closeBtn");
+
+notificationImage.addEventListener("click", () => {
+    notifications.classList.toggle("active");
+});
+
+closeBtn.addEventListener("click", () => {
+    notifications.classList.remove("active");
+});
+
+</script>
+</body>
+</html>
+</nav>
+

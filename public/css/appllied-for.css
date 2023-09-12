@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    font-family: "Heebo",sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #666565;
+    background-color: #EFFDF5;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    
+}
+.main-container {
+    height: 900px;
+}
+.job-item {
+    border: 1px solid transparent;
+    border-radius: 2px;
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    transition: .5s;
+}
+.disabled-button {
+    cursor: not-allowed;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  .expand-icon {
+    cursor: pointer;
+}
+
+.expanded-content {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+.comment-icon {
+    font-size: 24px; /* Adjust the size as needed */
+    color: #007bff; /* Adjust the color to match your design */
+    cursor: pointer;
+}
+.cbx {
+    position: relative;
+    width: 27px;
+    height: 27px;
+    border: 1px solid #c8ccd4;
+    border-radius: 3px;
+    vertical-align: middle;
+    transition: background 0.1s ease;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 15px;
+    right: 50;
+   }
+   .cbx:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 8px;
+    width: 7px;
+    height: 14px;
+    opacity: 0;
+    transform: rotate(45deg) scale(0);
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transition: all 0.3s ease;
+    transition-delay: 0.15s;
+   }
+   
+   .lbl {
+    margin-left: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+   }
+   
+.cntr input[type="checkbox"][id^="cbx"]:checked ~ .cbx {
+    border-color: transparent;
+    background: #77dd77;
+    animation: jelly 0.6s ease;
+}
+
+/* Styling for the checkbox label after checking */
+.cntr input[type="checkbox"][id^="cbx"]:checked ~ .cbx:after {
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+}
+
+   
+   .cntr {
+    position: relative;
+   }
+   
+   @keyframes jelly {
+    from {
+     transform: scale(1, 1);
+    }
+   
+    30% {
+     transform: scale(1.25, 0.75);
+    }
+   
+    40% {
+     transform: scale(0.75, 1.25);
+    }
+   
+    50% {
+     transform: scale(1.15, 0.85);
+    }
+   
+    65% {
+     transform: scale(0.95, 1.05);
+    }
+   
+    75% {
+     transform: scale(1.05, 0.95);
+    }
+   
+    to {
+     transform: scale(1, 1);
+    }
+   }
+   
+   .hidden-xs-up {
+    display: none!important;
+   }
+   .check-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+   }
+   span{
+   color: black;
+   font-size: 16px;
+   }

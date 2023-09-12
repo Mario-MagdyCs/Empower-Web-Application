@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JobEntry - Job Portal Website</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link rel ="shortcut icon" type= "x-icon" href="/img/job.png"> 
+    <link href="/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/video.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/chat.css">
+
+
+
+
+    <style>
+        .reading-mask,#job-mask {
+            position: absolute;  
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px; 
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+            z-index: 9999; 
+            width: 400px; 
+        }
+        #job-mask{
+            width:700px;
+        }
+        .footer{
+            margin-bottom:-9%;
+            width:150%;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/ee4053c9b9.js" crossorigin="anonymous"></script>
+    
+    <div class="container-xxl bg-white p-0 "  >
+        <!-- Spinner Start -->
+     
+        <!-- Spinner End -->
+
+
+        <!-- Navbar Start -->
+        <%-include("partials/chat.ejs")%>  
+        <%- include('partials/nav.ejs', { notificationMessages: notificationMessages }) %>
+       
+        <!-- Navbar End -->
+
+
+        <!-- Carousel Start -->
+        <div class="container-fluid p-0">
+            <div class="owl-carousel header-carousel position-relative">
+                <div class="owl-carousel-item position-relative">
+                    <img class="img-fluid" src="/img/bg-2.jpg" alt="Background Image" style="height:620px">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(43, 57, 64, .5);">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8">
+                                    <h1  class="display-3 text-white animated slideInDown mb-4 reading12">Find The Perfect Job That You Deserve</h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2 reading12">Your unique perspective and experiences can bring fresh ideas to the table. Embrace your uniqueness!</p>
+                                    <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft reading12">Search A Job</a>
+                                    <a href="uploadResume" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight reading12">Find A Talent</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-carousel-item position-relative">
+                    <img class="img-fluid" src="/img/bg-3.jpg" alt="Background Image" style="height:620px">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(43, 57, 64, .5);">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8">
+                                    <h1 class="display-3 text-white animated slideInDown mb-4 reading12">Find The Best Job That Fits You</h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2 reading12">The world needs your talents and contributions. Keep shining..</p>
+                                    <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft reading12">Search A Job</a>
+                                    <a href="uploadResume" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight reading12">Find A Talent</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel End -->
+
+
+        <!-- Search Start -->
+        <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+            <div class="container">
+                <div class="row g-2">
+                    <div class="col-md-10">
+                        <div class="row g-2">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control border-0" placeholder="Keyword" />
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select border-0">
+                                    <option class="reading12" selected>Category</option>
+                                    <option class="reading12" value="1">Category 1</option>
+                                    <option class="reading12" value="2">Category 2</option>
+                                    <option class="reading12" value="3">Category 3</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select border-0">
+                                    <option class="reading12" selected>Location</option>
+                                    <option class="reading12" value="1">Cairo</option>
+                                    <option class="reading12" value="2">Alex</option>
+                                    <option class="reading12" value="3">US</option>
+                                    <option class="reading12" value="4">Remotely</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+
+                        <!-- <button class="chatBtn" onclick="openForm()">
+                            <svg height="1.6em" fill="white" xml:space="preserve" viewBox="0 0 1000 1000" y="0px" x="0px" version="1.1">
+                              <path d="M881.1,720.5H434.7L173.3,941V720.5h-54.4C58.8,720.5,10,671.1,10,610.2v-441C10,108.4,58.8,59,118.9,59h762.2C941.2,59,990,108.4,990,169.3v441C990,671.1,941.2,720.5,881.1,720.5L881.1,720.5z M935.6,169.3c0-30.4-24.4-55.2-54.5-55.2H118.9c-30.1,0-54.5,24.7-54.5,55.2v441c0,30.4,24.4,55.1,54.5,55.1h54.4h54.4v110.3l163.3-110.2H500h381.1c30.1,0,54.5-24.7,54.5-55.1V169.3L935.6,169.3z M717.8,444.8c-30.1,0-54.4-24.7-54.4-55.1c0-30.4,24.3-55.2,54.4-55.2c30.1,0,54.5,24.7,54.5,55.2C772.2,420.2,747.8,444.8,717.8,444.8L717.8,444.8z M500,444.8c-30.1,0-54.4-24.7-54.4-55.1c0-30.4,24.3-55.2,54.4-55.2c30.1,0,54.4,24.7,54.4,55.2C554.4,420.2,530.1,444.8,500,444.8L500,444.8z M282.2,444.8c-30.1,0-54.5-24.7-54.5-55.1c0-30.4,24.4-55.2,54.5-55.2c30.1,0,54.4,24.7,54.4,55.2C336.7,420.2,312.3,444.8,282.2,444.8L282.2,444.8z"></path>
+                            </svg>
+                            <span class="tooltip">Chat</span>
+                          </button> -->
+                          
+                          <form class="form" id="form" style="display: none;">
+                            <input class="input" type="text" placeholder="Name">
+                            <input class="input" type="text" placeholder="E-Mail I.D.">
+                            <textarea class="textarea" placeholder="Enter message"></textarea> 
+                            <button class="button">Submit</button>
+                          </form>
+                        
+                        <button  class="btn btn-dark border-0 w-100 reading12">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Search End -->
+
+        <div id="readingMask" class="reading-mask" style="display: none;"></div>
+
+        <!-- Category Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <h1 class="text-center mb-5 wow fadeInUp reading12 "  data-wow-delay="0.1s">Adaptive Features</h1>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp"  data-wow-delay="0.1s" >
+                        <a class="cat-item rounded p-4" id="mask-button" onclick="buttonPressed()"  style="cursor: pointer;">
+                            <i class="fa fa-3x fa-book-reader text-primary mb-4"></i>
+                            <h6 class="mb-3 reading12">Reading Mask</h6>
+                        </a>
+                      
+                    </div>
+
+
+                    <div class="modal fade" id="linksModal" tabindex="-1" aria-labelledby="linksModalLabel" >
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title reading12" id="linksModalLabel">Links</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Links will be displayed here -->
+                                    <ul id="linksList" class="list-group"></ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- "View Links" button with id="viewLinksIndex" -->
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="cat-item rounded p-4" data-bs-toggle="modal" data-bs-target="#linksModal" id="viewLinksIndex">
+                            <i class="fa-solid fa-link text-primary mb-4 speaker" style="font-size: 2.6em; text-align: left;"></i>
+                            <h6 class="mb-3 screenr12 reading12" style="text-align: left;">View Links</h6>
+                        </a>
+                    </div>
+                    
+                    
+
+                    
+
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <a class="cat-item rounded p-4" id="screenreader" onclick="buttonPressed12()" style="cursor: pointer;">
+                            <i class="fa-solid fa-volume-high speaker" id="screenlogo"></i>
+                            <h6 class="mb-3 screenr12 reading12">Screen Reader</h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <a class="cat-item rounded p-4" id="colorblind" onclick="colorblind()" style="cursor: pointer;">
+                            <i class="fa-solid fa-eye speaker"></i>
+                            <h6 class="mb-3 screenr12 reading12">Color Blind</h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp"  data-wow-delay="0.1s">
+                        <a class="cat-item rounded p-4" id="textenlarge" onclick="textenlargement()" style="cursor: pointer;">
+                            <i class="fa-solid fa-magnifying-glass speaker" id="textenlargelogo"></i>
+                            <h6 class="mb-3 screenr12 reading12">Text Enlargement</h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <a class="cat-item rounded p-4" onclick="highlightlinks()" style="cursor: pointer;">
+                            <i class="fa-solid fa-highlighter speaker"></i>
+                            <h6 class="mb-3 reading12 screenr12">Highlight Links</h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <a class="cat-item rounded p-4"id="hideimage" onclick="hideimages()" style="cursor: pointer;">
+                            <i class="fa-regular fa-image speaker" id="hideimagelogo"></i>
+                            <h6 class="mb-3 reading12 screenr12">Hide Images</h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <a class="cat-item rounded p-4" onclick="textalign()" id="textalign1" style="cursor: pointer;">
+                            <i class="fa-solid fa-align-justify speaker" id="textalign1logo"  style="display: block;"></i>
+                            <i class="fa-solid fa-align-left speaker" id="textalign1logoL" style="display: none;"></i>
+                            <i class="fa-solid fa-align-right speaker" id="textalign1logoR" style="display: none;"></i>
+                            <i class="fa-solid fa-align-center speaker" id="textalign1logoC" style="display: none;"></i>
+                            <h6 class="mb-3 reading12 screenr12">Text Align</h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Category End -->
+
+        
+        <!-- About Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="row g-0 about-bg rounded overflow-hidden">
+                            <div class="col-6 text-start">
+                                <img class="img-fluid w-100" src="/img/ab-1.jpg" style="height: 120%;">
+                            </div>
+                            <div class="col-6 text-start">
+                                <img class="img-fluid" src="/img/ab-2.jpg" style="width: 100%;height: 100%;">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid" src="/img/ab-3.jpg" style="width: 100%;margin-top: 36px;height:110%;">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid w-100" src="/img/ab-4.jpg" style="height: 100%;" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn " data-wow-delay="0.5s">
+                        <h1 class="mb-4 reading12">We Help To Get The Best Job And Find A Talent</h1>
+                        <p class="mb-4 reading12">Welcome to Empower, where we believe that diversity is not just a buzzword; it's the heart and soul of who we are. We are a job application platform dedicated to empowering individuals with disabilities to thrive in the professional world.
+                           Our journey began with a simple yet profound vision: to create a space where everyone, regardless of their physical or cognitive challenges, could find meaningful employment opportunities. We understand that disability is not a limitation but rather a unique perspective, and we are committed to breaking down barriers and reshaping the job application landscape.</p>
+                        <p class="reading12"><i class="fa fa-check text-primary me-3 "></i>Inclusivity</p>
+                        <p class="reading12"><i class="fa fa-check text-primary me-3 "></i>Tailored Support</p>
+                        <p class="reading12"><i class="fa fa-check text-primary me-3 "></i>Enlightened Employers</p>
+                        <p class="reading12"><i class="fa fa-check text-primary me-3 "></i>Advocacy</p>
+                        <a class="btn btn-primary py-3 px-5 mt-3 reading12 linkss " href="/about">Read More</a>
+                    </div>
+                    
+                    <!-- <div class="popup" id="videoPopup">
+                        <video src="autizm_vid.mp4" controls="true" autoplay class="video"></video>
+                        <img src="/img/close.png" onclick="closeVideo();" class="close" alt="">
+                    </div>
+                    
+                    <script>
+                        function showVideo() {
+                            var popup = document.getElementById("videoPopup");
+                            var video = popup.querySelector(".video");
+                            popup.classList.add("active");
+                            video.play();
+                        }
+                    
+                        function closeVideo() {
+                            var popup = document.getElementById("videoPopup");
+                            var video = popup.querySelector(".video");
+                            popup.classList.remove("active");
+                            video.pause();
+                            video.currentTime = 0;
+                        }
+                    </script> -->
+               
+        <!-- About End -->
+
+
+        <!-- Jobs Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <h1 class="text-center mb-5 wow fadeInUp reading12" data-wow-delay="0.1s">Job Listing</h1>
+                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
+                    <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5" id="myTabs">
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 navlink active linkss" data-bs-toggle="pill" href="#tab-1" >
+                                <h6 class="mt-n1 mb-0 reading12">Featured</h6>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 pb-3 navlink linkss" data-bs-toggle="pill" href="#tab-2">
+                                <h6 class="mt-n1 mb-0 reading12">Onsite</h6>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 me-0 pb-3 navlink linkss" data-bs-toggle="pill" href="#tab-3">
+                                <h6 class="mt-n1 mb-0 reading12">Offsite</h6>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div id="job-mask" style="display: none;"></div>
+                    <% function generateJobItems(filterFn) {
+                        if (jobs !== "") {
+                          jobs.forEach((job) => {
+                            if (filterFn(job)) { %>
+                              <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded reading12" id="cimg"  src="/img/<%=job.Companylogo%>" alt="<%=job.Company%> Logo" style="width: 80px; height: 80px;">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3 reading12"><%=job.Name%></h5>
+                                            <h5 class="reading12" id="<%=job.Company%>" style="display:none;"><%=job.Company%></h5>
+                                            <span class="text-truncate me-3 reading12"><i class="fa fa-map-marker-alt text-primary me-2 reading12"></i><%=job.Location%></span>
+                                            <span class="text-truncate me-3 reading12"><i class="fa-solid fa-map-pin" style="color:rgb(18, 18, 104) reading12"></i> <%=job.Place%></span>
+                                            <span class="text-truncate me-0 reading12"><i class="far fa-money-bill-alt text-primary me-2 reading12"></i><%=job.Salary%></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3 linkss" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <button class="btn btn-primary view-button reading12" data-jobid="<%=job._id%>">View Details</button>
+                                        </div>
+                                        <small class="text-truncate reading12"><i class="far fa-calendar-alt text-primary me-2 reading12"></i>Date Line: 01 Jan, 2045</small>
+                                    </div>
+                                </div>
+                              </div>
+                            <% }
+                          });
+                        }
+                      } %>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane fade show p-0 active" >
+                            <% generateJobItems((job) => {
+                            return true; 
+                            }); %>   
+                        </div>
+
+                        <div id="tab-2" class="tab-pane fade show p-0">
+                            <% generateJobItems((job) => {
+                            return job.Place.toLowerCase().includes("hybrid") || job.Place.toLowerCase().includes("onsite");
+                            }); %>  
+                        </div>
+
+                        <div id="tab-3" class="tab-pane fade show p-0">
+                            <% generateJobItems((job) => {
+                            return job.Place.toLowerCase().includes("hybrid") || job.Place.toLowerCase().includes("remot") || job.Place.toLowerCase().includes("offsite");
+                            }); %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+                $(document).ready(function() {
+                    $('#myTabs a.navlink').click(function(e) {
+                    e.preventDefault(); 
+                    $('#myTabs a.navlink').removeClass('active');
+                    $(this).addClass('active');
+                    var tabId = $(this).attr('href');
+                    $('.tab-pane').removeClass('active show'); 
+                    $(tabId).addClass('active show'); 
+                    });
+                });
+
+                $(".view-button").click(function () {
+                const jobId = $(this).data("jobid");
+                redirectToJobDetails(jobId);
+                });
+                
+                function redirectToJobDetails(jobId) {
+                window.location.href = `/job-detail/${jobId}`;
+                }    
+
+        </script>
+        <!-- Jobs End -->
+
+
+        <!-- Testimonial Start -->
+        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container">
+                <h1 class="text-center mb-5">Our Clients Say!!!</h1>
+                <div class="owl-carousel testimonial-carousel">
+                    <div class="testimonial-item bg-light rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-1.jpg" style="width: 50px; height: 50px;">
+                            <div class="ps-3">
+                                <h5 class="mb-1">Client Name</h5>
+                                <small>Profession</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-2.jpg" style="width: 50px; height: 50px;">
+                            <div class="ps-3">
+                                <h5 class="mb-1">Client Name</h5>
+                                <small>Profession</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-3.jpg" style="width: 50px; height: 50px;">
+                            <div class="ps-3">
+                                <h5 class="mb-1">Client Name</h5>
+                                <small>Profession</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-4.jpg" style="width: 50px; height: 50px;">
+                            <div class="ps-3">
+                                <h5 class="mb-1">Client Name</h5>
+                                <small>Profession</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        
+
+      
+        <%-include("partials/footer.ejs")%> 
+        
+
+
+        <div id="statusMessage"></div>
+        
+    </div>
+
+
+
+
+       
+     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="/lib/wow/wow.min.js"></script>
+     <script src="/lib/easing/easing.min.js"></script>
+     <script src="/lib/waypoints/waypoints.min.js"></script>
+     <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+     
+
+     <script src="/js/main.js"></script>
+     <script src="/js/readingMask.js"></script>
+     <script src="./js/screen_reader.js"></script>
+     <script src="./js/accessibilities.js"></script>
+     <script src="/js/viewlinks.js"></script>
+    
+
+</body>
+
+</html>
